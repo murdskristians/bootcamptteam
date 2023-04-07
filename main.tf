@@ -38,6 +38,25 @@ resource "aws_security_group" "instance_sg" {
     protocol = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
+  
+   ingress {
+    description = "MYSQL"
+    from_port = 3306
+    to_port = 3306
+    protocol = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+ 
+   egress {
+     from_port = 0
+     to_port = 65535
+     protocol = "tcp"
+     cidr_blocks = ["0.0.0.0/0"]
+   }
+ 
+   tags = {
+     Name = "instance_sg"
+   }
 }
 
 # Creating an EC2 instance
