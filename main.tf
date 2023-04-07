@@ -22,7 +22,7 @@ resource "aws_subnet" "private_subnet" {
 
 # Creating a security group for the EC2 instance
 resource "aws_security_group" "instance_sg" {
-  name_prefix = "instance_sg"
+  name = "instance_sg"
   vpc_id = aws_vpc.bootcamp_vpc.id
 
   ingress {
